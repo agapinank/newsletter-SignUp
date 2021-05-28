@@ -37,9 +37,9 @@ app.post("/", (req, res) => {
   };
   const request = https.request(url, options, (response) => {
     if (response.statusCode === 200) {
-      res.sendFile(__dirname + "/success");
+      res.sendFile(__dirname + "/success.html");
     } else {
-      res.sendFile(__dirname + "/failure");
+      res.sendFile(__dirname + "/failure.html");
     }
     response.on("data", (data) => {
       console.log(JSON.parse(data));
@@ -48,13 +48,11 @@ app.post("/", (req, res) => {
   request.write(jsonData);
   request.end();
 });
-app.post("/failure",(req,res)=>{
+app.post("/failure.html",(req,res)=>{
   res.redirect("/");
 });
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, ()=> {
   console.log("Example app listening");
 });
 
-//api Key #26217bc58615dddde498f7c907ffc602-us6
-// list Id 8a6b30c8a7
