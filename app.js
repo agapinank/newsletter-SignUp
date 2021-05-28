@@ -37,9 +37,9 @@ app.post("/", (req, res) => {
   };
   const request = https.request(url, options, (response) => {
     if (response.statusCode === 200) {
-      res.sendFile(__dirname + "/success.html");
+      res.sendFile(__dirname + "/success");
     } else {
-      res.sendFile(__dirname + "/failure.html");
+      res.sendFile(__dirname + "/failure");
     }
     response.on("data", (data) => {
       console.log(JSON.parse(data));
@@ -53,7 +53,7 @@ app.post("/failure",(req,res)=>{
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log("Example app listening");
 });
 
 //api Key #26217bc58615dddde498f7c907ffc602-us6
